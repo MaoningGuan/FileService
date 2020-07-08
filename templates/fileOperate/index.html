@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>2018级计软学院开题报告电子版</title>
+</head>
+<body>
+    <ul>
+        {% for file in files %}
+            <li><a href="{% url 'fileOperate:download' file %}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

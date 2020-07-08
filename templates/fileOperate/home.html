@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block main %}
+<div class="panel-body">
+    <table class="table File-List-index-Table">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>文件大小</th>
+            <th>文件名</th>
+            <th>下载链接</th>
+        </tr>
+        {% if files == '' %}
+            <span></span>
+        {% else %}
+            {% for file in files %}
+            <tr>
+                <td>{{ file.number }}</td>
+                <td>{{ file.name }}</td>
+                <td>{{ file.file_size }}M</td>
+                <td>{{ file.file_name }}</td>
+                <td><a href="{% url 'fileOperate:download' file.file_name %}">点击下载</a></td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+</div>
+{% endblock %}
